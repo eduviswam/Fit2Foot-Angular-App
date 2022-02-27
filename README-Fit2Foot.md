@@ -61,7 +61,7 @@ The project architecture is as given below:
   - Final code review.
 
   ## Notes
-   - Recent;y viewed items will appear when there is a history only which means you should select alleast 3 items to view the history
+   - Recently viewed items will appear when there is a history only which means you should select alleast 3 items to view the history
  
 
 ## License
