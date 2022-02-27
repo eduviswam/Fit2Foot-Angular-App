@@ -1,0 +1,13 @@
+body {
+    font-weight: 700;
+}
+
+.container-fluid{
+    margin-top: 5%;
+}
+
+.card-header{
+    background-color: #fff;
+}
+
+

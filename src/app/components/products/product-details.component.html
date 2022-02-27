@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row justify-content-start" *ngFor="let item of productSelected">
+      <div class="col-md-12 col-xl-12">
+        <div class="card shadow p-3 bg-body rounded">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img [src]="item.mainImage"  class="w-100"/>
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"
+                      >
+                    </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>{{item.name}}</h5>
+                <h5 class="card-subtitle mt-4">Available: {{item.stockStatus }}</h5>
+                <div class="buy d-flex justify-content-between align-items-center mt-4">
+                  <h5 class="shoes-colors">Colour: {{item.colour | uppercase}}</h5>                
+                </div>
+                <h5 class="buy d-flex justify-content-between align-items-center mt-3">Size</h5>
+                <div class="buy d-flex align-items-center mt-4">
+                    <label class="radio" *ngFor="let size of item.sizes; let index= index"> 
+                        <input type="radio" name="size" value = {{item.sizes[index]}} (change)="onChangeSize($event.target)"> 
+                        <span>{{item.sizes[index]}}</span> 
+                    </label>
+                </div>   
+                <div class="buy d-flex justify-content-between align-items-center mt-4">
+                    <h6 class="shoes-colors"><strong>Description</strong> <p class="mt-4">{{item.description}}</p></h6>                
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">{{item.price.amount | currency: 'GBP'}}</h4>
+                  <span class="text-danger"><s></s></span>
+                </div>
+                <h6 class="text-success">Free shipping</h6>
+                <div class="d-flex flex-column mt-4">
+                  <button [routerLink]= "['/products']" class="btn btn-primary btn-sm" type="button">Continue Shopping</button>
+                  <button class="btn btn-outline-primary btn-sm mt-2" type="button" (click)="addToCart(item,item.selectedSize)">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

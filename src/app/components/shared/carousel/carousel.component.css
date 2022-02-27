@@ -1,0 +1,18 @@
+.container{
+    margin-top: 2%;
+}
+
+.product-item-content {
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    margin: .3rem;
+    text-align: center;
+    padding: 2rem 0;
+ }
+
+ .product-image {
+    width: 50%;
+    object-fit: contain;
+ }
+
+

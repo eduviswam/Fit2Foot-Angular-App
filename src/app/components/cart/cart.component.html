@@ -1,0 +1,88 @@
+<ng-container *ngIf="products.length > 0">
+        <div class="container">
+          <div class="row justify-content-start" *ngFor="let item of products">
+            <div class="col-md-12 col-xl-12">
+              <div class="card shadow bg-body rounded">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                      <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                        <img [src]="item.mainImage"  class="w-50"/>
+                        <a href="#!">
+                          <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);">
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                      <h6>{{item.name}}</h6>
+                      <h6 class="card-subtitle mt-4">Available: {{item.stockStatus }}</h6>
+                      <div class="buy d-flex justify-content-between align-items-center mt-4">
+                        <h6 class="shoes-colors">Colour: {{item.colour | uppercase}}</h6>                
+                     </div>
+                     <h6 class="card-subtitle mt-4">Size: {{ item.selectedSize }}</h6>
+                     <h6 class="card-subtitle mt-4">Quantity: {{ item.quantity }}</h6>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                      <div class="d-flex flex-row align-items-center mb-1">
+                        <h4 class="mb-1 me-1">{{item.total.amount | currency: 'GBP'}}</h4>
+                        <span class="text-danger"><s></s></span>
+                      </div>
+                      <h6 class="text-success">Free shipping</h6>
+                      <div class="d-flex flex-column mt-4">
+                        <button [routerLink] ="['/products', item.id]" class="btn btn-primary btn-sm" type="button">View Details</button>
+                        <button class="btn btn-outline-primary btn-sm mt-2" type="button" (click)="removeItem(item)">
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-start" *ngIf="products.length !=0">
+            <div class="col-md-12 col-xl-12">
+              <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                  <div class="row justify-content-end">
+                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                      <div class="d-flex flex-row align-items-center mb-1">
+                        <h4 class="mb-1 me-1">Grand Total: {{ grandTotal | currency: 'GBP' }}</h4>
+                        <span class="text-danger"><s></s></span>
+                      </div>
+                      <div class="d-flex flex-column mt-4">
+                        <button [routerLink] ="['/products']" class="btn btn-primary btn-sm" type="button">Continue Shopping</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>My Cart</h5>
+                </div>
+                <div class="card-body cart shadow p-3bg-body rounded">
+                    <div class="col-sm-12 empty-cart-cls text-center"><i  class="fas fa-cart-plus fa-5x"></i>
+                        <h3 class="mt-4"><strong>Your Cart is Empty</strong></h3>
+                        <h5 class="mt-4">Add item to it now</h5>
+                        <a routerLink="/products" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+

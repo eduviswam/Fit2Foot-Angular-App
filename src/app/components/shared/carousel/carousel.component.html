@@ -1,0 +1,26 @@
+  <div class="container" *ngIf="productHistory.length > 2">
+    <p-carousel [value]="productHistory" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+          <h5>Your recently viewed history</h5>
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+          <div class="product-item">
+              <div class="product-item-content">
+                  <div class="mb-3">
+                    <a [routerLink]="['/products', product.id]" class="stretched-link" (click)="addToHistory(product)">
+                        <img class="product-image" [src]= "product.mainImage"  alt="">
+                    </a>
+                    <!-- <img class="product-image" [src]= "product.mainImage"  alt=""> -->
+                  </div>
+                  <div>
+                      <h5 class="mb-1">{{product.name}}</h5>
+                      <h6 class="mt-0 mb-3">${{product.price.amount}}</h6>                   
+                  </div>
+                  <div class="car-buttons mt-5">
+                    <p-button type="button" (click)="addToCart(product)" styleClass="p-button p-button mr-2">Add to Cart</p-button>
+                </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+</div>

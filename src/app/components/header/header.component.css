@@ -1,0 +1,11 @@
+.nav{
+    background-color: #fff;
+}
+
+.shoePrint {
+    font-size: 30px;
+    display: flex;
+    align-self: center;
+    padding: 5px;
+}
+

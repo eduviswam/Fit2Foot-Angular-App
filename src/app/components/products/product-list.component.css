@@ -1,0 +1,62 @@
+.container{
+    margin-top: 3%;
+}
+
+.row{
+    row-gap: 10px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+}
+
+.card-title{
+    font-size:15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.shoes-colors {
+    margin-top: 15px;
+    display: flex;
+    justify-content: start;
+}
+
+.card-title{
+    font-size: 18px;
+}
+
+.shoes-colors span {
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative
+}
+
+.form-select{
+    width: auto;
+    font-size: 15px;
+}
+
+.card {
+    position: relative;
+  }
+  
+a.stretched-link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+  
+ .raise {
+    position: relative;
+    z-index: 1;
+}

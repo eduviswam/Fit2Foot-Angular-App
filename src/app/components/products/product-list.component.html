@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4" *ngFor="let product of productsList">
+        <div class="card shadow mb-5 bg-body rounded">
+          <a [routerLink]="['/products', product.id]" class="stretched-link" (click)="addToHistory(product)">
+              <img class="card-img-top stretched-link" [src]= "product.mainImage"  alt="">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">{{ product.name }}</h4>
+            <h6 class="card-subtitle mt-3">Available: {{product.stockStatus }}</h6>
+            <div class="buy d-flex justify-content-between align-items-center">
+                <h6 class="shoes-colors">Colour: {{product.colour | uppercase}}</h6>                
+            </div>
+            <div class="buy d-flex justify-content-between align-items-center">
+                <h6>Size</h6>
+                <select (change)="onChange($event.target)" class="raise form-select ml-1" aria-label="Size">
+                    <option [ngValue]="product.sizes[index]" *ngFor="let size of product.sizes; let index = index">{{product.sizes[index]}}</option>
+                </select>
+            </div>                               
+            <div class="buy d-flex justify-content-between align-items-center">
+               <div class="price"><h5 class="mt-4">{{product.price.amount | currency:'GBP'}}</h5></div>
+               <a class="raise btn btn-danger mt-3" (click)="addToCart(product, selectedValue)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
